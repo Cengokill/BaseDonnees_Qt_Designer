@@ -13,121 +13,184 @@
   <property name="windowTitle">
    <string>Liste des épreuves d'une catégorie (version 2, catégories extraites de la BD)</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <widget class="QLabel" name="labelEdit_fct_comp_2">
-       <property name="text">
-        <string>Saisissez une catégorie :</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit_fct_comp_2"/>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_fct_comp_2">
-       <property name="text">
-        <string>Valider</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="0">
-    <widget class="QLabel" name="labelAFaire_fct_comp_2">
-     <property name="text">
-      <string>Travail à réaliser : améliorer l'interface afin de proposer une liste des catégories possibles (issues de la base de données).</string>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-     <property name="wordWrap">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0">
-    <widget class="QTableWidget" name="table_fct_comp_2">
-     <attribute name="horizontalHeaderMinimumSectionSize">
-      <number>50</number>
-     </attribute>
-     <attribute name="horizontalHeaderStretchLastSection">
-      <bool>true</bool>
-     </attribute>
-     <attribute name="verticalHeaderVisible">
-      <bool>false</bool>
-     </attribute>
-     <column>
-      <property name="text">
-       <string>numEp</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>nomEp</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>formeEp</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>nomDi</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>categorieEp</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>nomDi</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
-       <string>dateEp</string>
-      </property>
-     </column>
-    </widget>
-   </item>
-   <item row="3" column="0">
-    <widget class="QLabel" name="label_fct_comp_2">
-     <property name="text">
-      <string/>
-     </property>
-     <property name="alignment">
-      <set>Qt::AlignCenter</set>
-     </property>
-    </widget>
-   </item>
-  </layout>
+  <property name="sizeGripEnabled">
+   <bool>false</bool>
+  </property>
+  <widget class="QTableWidget" name="table_fct_comp_2">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>149</y>
+     <width>782</width>
+     <height>201</height>
+    </rect>
+   </property>
+   <attribute name="horizontalHeaderMinimumSectionSize">
+    <number>50</number>
+   </attribute>
+   <attribute name="horizontalHeaderStretchLastSection">
+    <bool>true</bool>
+   </attribute>
+   <attribute name="verticalHeaderVisible">
+    <bool>false</bool>
+   </attribute>
+   <column>
+    <property name="text">
+     <string>numEp</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>nomEp</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>formeEp</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>nomDi</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>categorieEp</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>nomDi</string>
+    </property>
+   </column>
+   <column>
+    <property name="text">
+     <string>dateEp</string>
+    </property>
+   </column>
+  </widget>
+  <widget class="QLabel" name="label_fct_comp_2">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>356</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="liste_categories">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>40</y>
+     <width>250</width>
+     <height>108</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>250</width>
+     <height>120</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>350</x>
+     <y>90</y>
+     <width>345</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>345</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Veuillez sélectionner une catégorie</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+  <widget class="QLabel" name="labelEdit_fct_comp_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>172</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Saisissez une catégorie :</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
   <connection>
-   <sender>pushButton_fct_comp_2</sender>
-   <signal>clicked()</signal>
+   <sender>liste_categories</sender>
+   <signal>itemEntered(QListWidgetItem*)</signal>
+   <receiver>fct_comp_2</receiver>
+   <slot>refreshCategories()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>332</x>
+     <y>102</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>796</x>
+     <y>99</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>liste_categories</sender>
+   <signal>itemClicked(QListWidgetItem*)</signal>
    <receiver>fct_comp_2</receiver>
    <slot>refreshResult()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>364</x>
-     <y>52</y>
+     <x>747</x>
+     <y>140</y>
     </hint>
     <hint type="destinationlabel">
-     <x>444</x>
-     <y>81</y>
+     <x>795</x>
+     <y>130</y>
     </hint>
    </hints>
   </connection>
  </connections>
  <slots>
   <slot>refreshResult()</slot>
+  <slot>refreshCategories()</slot>
+  <slot>on_pushButton_clicked()</slot>
  </slots>
 </ui>
