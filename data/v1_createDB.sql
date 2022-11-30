@@ -32,3 +32,4 @@ CREATE TABLE LesEpreuves
 -- TODO 1.4a : ajouter la définition de la vue LesAgesSportifs
 -- TODO 1.5a : ajouter la définition de la vue LesNbsEquipiers
 -- TODO 3.3 : ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)
+
