@@ -20,19 +20,22 @@ class AppFctComp1Partie1(QDialog):
         # TODO 1.1 : fonction à modifier pour remplacer la zone de saisie par une liste de valeurs prédéfinies
         #  dans l'interface une fois le fichier ui correspondant mis à jour
         display.refreshLabel(self.ui.label_fct_comp_1, "")
-        if not self.ui.lineEdit_fct_comp_1.text().strip():
+        if(self.Femmes.isChecked()):
+            sexe = "'feminin'"
+        if(self.Hommes.isChecked()):
+            sexe = "'masculin'"
+        if(self.Mixtes.isChecked()):
+            sexe = "'mixte'"
+        try:
+            cursor = self.data.cursor()
+            commande = "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, strftime(""'%Y-%m-%d',dateEp,'unixepoch') FROM V0_LesEpreuves WHERE categorieEp = "+sexe
+            result = cursor.execute(commande)
+            nb = cursor.execute("SELECT COUNT (numEp) as nombre, nomDi FROM V0_LesEpreuves WHERE categorieEp = "+sexe+" GROUP BY nomDi")
+            #display.refreshLabel(self.ui.affichage_taille,"lignes affichées")
+        except Exception as e:
             self.ui.table_fct_comp_1.setRowCount(0)
-            display.refreshLabel(self.ui.label_fct_comp_1, "Veuillez indiquer un nom de catégorie")
+            display.refreshLabel(self.ui.label_fct_comp_1, "Impossible d'afficher les résultats : " + repr(e))
         else:
-            try:
-                cursor = self.data.cursor()
-                result = cursor.execute(
-                    "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, strftime('%Y-%m-%d',dateEp,'unixepoch') FROM V0_LesEpreuves WHERE categorieEp = ?",
-                    [self.ui.lineEdit_fct_comp_1.text().strip()])
-            except Exception as e:
-                self.ui.table_fct_comp_1.setRowCount(0)
-                display.refreshLabel(self.ui.label_fct_comp_1, "Impossible d'afficher les résultats : " + repr(e))
-            else:
-                i = display.refreshGenericData(self.ui.table_fct_comp_1, result)
-                if i == 0:
-                    display.refreshLabel(self.ui.label_fct_comp_1, "Aucun résultat")
+            i = display.refreshGenericData(self.ui.table_fct_comp_1, result)
+            if i == 0:
+                display.refreshLabel(self.ui.label_fct_comp_1, "Aucun résultat")
