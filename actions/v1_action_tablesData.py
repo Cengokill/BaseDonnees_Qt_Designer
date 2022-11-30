@@ -42,5 +42,17 @@ class AppTablesDataV1(QDialog):
         self.refreshTable(self.ui.label_sportifs, self.ui.tableSportifs, "SELECT numSp, nomSp, prenomSp, pays, categorieSp, dateNaisSp, numEq FROM LesSportifsEQ")
 
         # TODO 1.3 : modifier pour afficher les nouveaux éléments (il faut aussi changer le fichier .ui correspondant)
+        self.refreshTable(self.ui.label_inscription, self.ui.tableInscription, "SELECT numSp, numIn FROM LesInscriptions")
+        self.refreshTable(self.ui.label_resultats, self.ui.tableResultats, "SELECT numEp, gold, silver, bronze FROM LesResultats")
+
         # TODO 1.4b : ajouter l'affichage des éléments de la vue LesAgesSportifs après l'avoir créée
+        self.refreshTable(self.ui.label_ages_sportifs, self.ui.tableAges_Sportifs, "SELECT Age, numSp FROM LesAgesSportifs")
+
         # TODO 1.5b : ajouter l'affichage des éléments de la vue LesNbsEquipiers après l'avoir créée
+        self.refreshTable(self.ui.label_nombre_equipiers, self.ui.tableNbsEquipiers, "SELECT Nb_Equipiers, numEq FROM LesNbsEquipiers")
+
+        # TODO 3.1 : Imaginer des nouvelles fonctionnalites de l’application.
+        # TODO 3.1a : Ajout
+        # TODO 3.1b : Modification
+        # TODO 3.1c : Suppression
+
