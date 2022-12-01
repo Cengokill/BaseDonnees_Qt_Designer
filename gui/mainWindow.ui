@@ -937,7 +937,7 @@
      <x>0</x>
      <y>0</y>
      <width>710</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">
@@ -1160,8 +1160,8 @@
      <y>467</y>
     </hint>
     <hint type="destinationlabel">
-     <x>662</x>
-     <y>459</y>
+     <x>599</x>
+     <y>460</y>
     </hint>
    </hints>
   </connection>
@@ -1181,6 +1181,38 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_2_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_partie2_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>510</x>
+     <y>639</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>577</x>
+     <y>639</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2_2</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_partie2_2()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>619</x>
+     <y>681</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>655</x>
+     <y>679</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>createDBV0()</slot>
@@ -1196,5 +1228,7 @@
   <slot>insertDBV1()</slot>
   <slot>openDataV1()</slot>
   <slot>createTriggersDBV1()</slot>
+  <slot>open_fct_partie2_2()</slot>
+  <slot>open_fct_partie2_1()</slot>
  </slots>
 </ui>

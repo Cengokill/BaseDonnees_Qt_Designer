@@ -30,7 +30,7 @@ class AppFctComp1Partie1(QDialog):
             cursor = self.data.cursor()
             commande = "SELECT numEp, nomEp, formeEp, nomDi, categorieEp, nbSportifsEp, strftime(""'%Y-%m-%d',dateEp,'unixepoch') FROM V0_LesEpreuves WHERE categorieEp = "+sexe
             result = cursor.execute(commande)
-            nb = cursor.execute("SELECT COUNT (numEp) as nombre, nomDi FROM V0_LesEpreuves WHERE categorieEp = "+sexe+" GROUP BY nomDi")
+            #nb = cursor.execute("SELECT COUNT (numEp) as nombre, nomDi FROM V0_LesEpreuves WHERE categorieEp = "+sexe+" GROUP BY nomDi")
             #display.refreshLabel(self.ui.affichage_taille,"lignes affichées")
         except Exception as e:
             self.ui.table_fct_comp_1.setRowCount(0)

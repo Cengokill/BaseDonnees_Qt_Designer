@@ -1,5 +1,8 @@
 
 import sys, sqlite3
+
+from actions.action_fct_partie_2_1 import AppFctPartie2_1
+from actions.action_fct_partie_2_2 import AppFctPartie2_2
 from utils import db
 from utils import display
 from utils import excel_extractor
@@ -29,6 +32,8 @@ class AppWindow(QMainWindow):
     fct_fournie_2_dialog = None
     fct_comp_1_dialog = None
     fct_comp_2_dialog = None
+    fct_partie2_1_dialog = None
+    fct_partie2_2_dialog = None
 
     # Constructeur
     def __init__(self):
@@ -105,7 +110,6 @@ class AppWindow(QMainWindow):
 
         # Action en cas de clic sur le bouton de création de base de données (V1)
     def createDBV1(self):
-
         try:
             # On exécute les requêtes du fichier de création
             db.updateDBfile(self.data, "data/v1_createDB.sql")
@@ -115,7 +119,6 @@ class AppWindow(QMainWindow):
             display.refreshLabel(self.ui.label_retour_BD,
                                   "L'erreur suivante s'est produite pendant lors de la création de la base V1: " + repr(
                                       e) + ".")
-
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
             display.refreshLabel(self.ui.label_retour_BD, "La base de données V1 a été créée avec succès.")
@@ -125,7 +128,6 @@ class AppWindow(QMainWindow):
 
     # En cas de clic sur le bouton d'insertion de données
     def insertDBV1(self):
-
         try:
             # on lit les données dans le fichier Excel
             excel_extractor.read_excel_file_V1(self.data, "data/LesJO.xlsx")
@@ -133,7 +135,6 @@ class AppWindow(QMainWindow):
         except Exception as e:
             # En cas d'erreur, on affiche un message
             display.refreshLabel(self.ui.label_retour_BD, "L'erreur suivante s'est produite lors de l'insertion des données V1 : "+repr(e)+".")
-
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
             display.refreshLabel(self.ui.label_retour_BD, "Un jeu de test V1 a été inséré dans la base avec succès.")
@@ -143,7 +144,6 @@ class AppWindow(QMainWindow):
 
     # Action en cas de clic sur le bouton de création de triggers base de données (V1)
     def createTriggersDBV1(self):
-
         try:
             # On exécute les requêtes du fichier de création
             db.updateDBfile(self.data, "data/v1_createTriggers.sql", True)
@@ -153,7 +153,6 @@ class AppWindow(QMainWindow):
             display.refreshLabel(self.ui.label_retour_BD,
                                  "L'erreur suivante s'est produite pendant lors de la création des triggers de la base V1: " + repr(
                                      e) + ".")
-
         else:
             # Si tout s'est bien passé, on affiche le message de succès et on commit
             display.refreshLabel(self.ui.label_retour_BD, "Les triggers de la base de données V1 ont été créés avec succès.")
@@ -163,7 +162,6 @@ class AppWindow(QMainWindow):
 
     # En cas de clic sur le bouton de suppression de la base
     def deleteDBV1(self):
-
         try:
             # On exécute les requêtes du fichier de suppression
             db.updateDBfile(self.data, "data/v1_deleteDB.sql")
@@ -171,7 +169,6 @@ class AppWindow(QMainWindow):
         except Exception as e:
             # En cas d'erreur, on affiche un message
             display.refreshLabel(self.ui.label_retour_BD, "Erreur lors de la suppression de la base de données V1: " + repr(e)+".")
-
         else:
             # Si tout s'est bien passé, on affiche le message de succès (le commit est automatique pour un DROP TABLE)
             display.refreshLabel(self.ui.label_retour_BD, "La base de données V1 a été supprimée avec succès.")
@@ -183,6 +180,17 @@ class AppWindow(QMainWindow):
     ####################################################################################################################
 
     # TODO 2 : ajouter la définition des méthodes déclenchées lors des clicks sur les boutons de la partie 2
+    def open_fct_partie2_1(self):
+        if self.fct_partie2_1_dialog is not None:
+            self.fct_partie2_1_dialog.close()
+        self.fct_partie2_1_dialog = AppFctPartie2_1(self.data)
+        self.fct_partie2_1_dialog.show()
+
+    def open_fct_partie2_2(self):
+        if self.fct_partie2_2_dialog is not None:
+            self.fct_partie2_2_dialog.close()
+        self.fct_partie2_2_dialog = AppFctPartie2_2(self.data)
+        self.fct_partie2_2_dialog.show()
     # TODO 3 : ajouter la définition des méthodes déclenchées lors des clicks sur les boutons de la partie 3
 
     # En cas de clic sur le bouton de visualisation des données
@@ -194,6 +202,7 @@ class AppWindow(QMainWindow):
         self.changedValue.connect(self.tablesDataDialogV0.refreshAllTablesV0)
 
     def openDataV1(self):
+
         if self.tablesDataDialogV1 is not None:
             self.tablesDataDialogV1.close()
         self.tablesDataDialogV1 = AppTablesDataV1(self.data)

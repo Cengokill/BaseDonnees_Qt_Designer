@@ -79,3 +79,31 @@ def read_excel_file_V1(data:sqlite3.Connection, file):
             cursor.execute(query)
         except IntegrityError as err:
             print(f"{err} : \n{row}")
+
+    # Lecture de l'onglet du fichier excel LesInscriptions, en interprétant toutes les colonnes comme des string
+    # pour construire uniformement la requête
+    df_inscriptions = pandas.read_excel(file, sheet_name='LesInscriptions', dtype=str)
+    df_inscriptions = df_inscriptions.where(pandas.notnull(df_inscriptions), 'null')
+
+    cursor = data.cursor()
+    for ix, row in df_inscriptions.iterrows():
+        try:
+            query = "insert into LesInscriptions values ({},{})".format(
+                row['numIn'], row['numEp'])
+            cursor.execute(query)
+        except IntegrityError as err:
+            print(err)
+
+    # Lecture de l'onglet du fichier excel LesResultats, en interprétant toutes les colonnes comme des string
+    # pour construire uniformement la requête
+    df_resultats = pandas.read_excel(file, sheet_name='LesResultats', dtype=str)
+    df_resultats = df_resultats.where(pandas.notnull(df_resultats), 'null')
+
+    cursor = data.cursor()
+    for ix, row in df_resultats.iterrows():
+        try:
+            query = "insert into LesResultats values ({},{},{},{})".format(
+                row['numEp'], row['gold'], row['silver'], row['bronze'])
+            cursor.execute(query)
+        except IntegrityError as err:
+            print(err)
