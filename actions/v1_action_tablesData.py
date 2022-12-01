@@ -33,7 +33,6 @@ class AppTablesDataV1(QDialog):
         else:
             display.refreshGenericData(table, result)
 
-
     # Fonction permettant de mettre à jour toutes les tables
     @pyqtSlot()
     def refreshAllTablesV1(self):
