@@ -937,7 +937,7 @@
      <x>0</x>
      <y>0</y>
      <width>710</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFiles">
@@ -1204,12 +1204,28 @@
    <slot>open_fct_partie2_2()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>619</x>
-     <y>681</y>
+     <x>602</x>
+     <y>687</y>
     </hint>
     <hint type="destinationlabel">
      <x>655</x>
      <y>679</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3_1</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>open_fct_partie3_1()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>429</x>
+     <y>743</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>509</x>
+     <y>748</y>
     </hint>
    </hints>
   </connection>
@@ -1230,5 +1246,6 @@
   <slot>createTriggersDBV1()</slot>
   <slot>open_fct_partie2_2()</slot>
   <slot>open_fct_partie2_1()</slot>
+  <slot>open_fct_partie3_1()</slot>
  </slots>
 </ui>

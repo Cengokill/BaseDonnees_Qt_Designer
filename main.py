@@ -34,6 +34,7 @@ class AppWindow(QMainWindow):
     fct_comp_2_dialog = None
     fct_partie2_1_dialog = None
     fct_partie2_2_dialog = None
+    fct_partie3_1_dialog = None
 
     # Constructeur
     def __init__(self):
@@ -192,6 +193,11 @@ class AppWindow(QMainWindow):
         self.fct_partie2_2_dialog = AppFctPartie2_2(self.data)
         self.fct_partie2_2_dialog.show()
     # TODO 3 : ajouter la définition des méthodes déclenchées lors des clicks sur les boutons de la partie 3
+    def open_fct_partie3_1(self):
+        if self.fct_partie3_1_dialog is not None:
+            self.fct_partie3_1_dialog.close()
+        self.fct_partie3_1_dialog = AppFctPartie3_1(self.data)
+        self.fct_partie3_1_dialog.show()
 
     # En cas de clic sur le bouton de visualisation des données
     def openDataV0(self):

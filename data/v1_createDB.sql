@@ -61,8 +61,3 @@ CREATE VIEW LesNbsEquipiers AS
 	FROM LesSportifsEQ
 	GROUP BY numEq;
 
--- Partie 2.2 : afficher le classement des pays selon leur nombre de médailles
-CREATE VIEW LesClassements AS
-    SELECT COUNT(gold) AS nbGold, COUNT(silver) AS nbSilver, COUNT(bronze) AS nbBronze, numEp
-    FROM LesResultats
-    GROUP BY numEp;
