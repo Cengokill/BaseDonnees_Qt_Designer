@@ -100,8 +100,26 @@
   </layout>
  </widget>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton</sender>
+   <signal>clicked()</signal>
+   <receiver>fct_partie3_1</receiver>
+   <slot>fct_ajouter_inscription()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>177</x>
+     <y>173</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>182</x>
+     <y>117</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
  <slots>
   <slot>refreshResult()</slot>
+  <slot>fct_ajouter_inscription()</slot>
  </slots>
 </ui>

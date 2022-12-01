@@ -3,6 +3,7 @@ import sys, sqlite3
 
 from actions.action_fct_partie_2_1 import AppFctPartie2_1
 from actions.action_fct_partie_2_2 import AppFctPartie2_2
+from actions.action_fct_partie_3_1 import AppFctPartie3_1
 from utils import db
 from utils import display
 from utils import excel_extractor
