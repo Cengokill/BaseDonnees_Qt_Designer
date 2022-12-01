@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import QDialog
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import uic
 
-
 # Classe permettant d'afficher la fonction à compléter 3
 class AppFctComp1Partie1(QDialog):
 
@@ -15,7 +14,6 @@ class AppFctComp1Partie1(QDialog):
         self.data = data
 
     # Fonction de mise à jour de l'affichage
-    @pyqtSlot()
     def refreshResult(self):
         # TODO 1.1 : fonction à modifier pour remplacer la zone de saisie par une liste de valeurs prédéfinies
         #  dans l'interface une fois le fichier ui correspondant mis à jour
