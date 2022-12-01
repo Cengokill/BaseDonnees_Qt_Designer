@@ -18,18 +18,18 @@ CREATE TABLE LesSportifsEQ(
 );
 
 CREATE TABLE LesEpreuves(
- numEp NUMBER(3),
- nomEp VARCHAR2(20) NOT NULL,
- formeEp VARCHAR2(13),
- nomDi VARCHAR2(25) NOT NULL,
- categorieEp VARCHAR2(10),
- nbSportifsEp NUMBER(2),
- dateEp DATE,
- CONSTRAINT EP_PK PRIMARY KEY (numEp),
- CONSTRAINT EP_CK1 CHECK (formeEp IN ('individuelle','par equipe','par couple')),
- CONSTRAINT EP_CK2 CHECK (categorieEp IN ('feminin','masculin','mixte')),
- CONSTRAINT EP_CK3 CHECK (numEp > 0),
- CONSTRAINT EP_CK4 CHECK (nbSportifsEp > 0)
+    numEp NUMBER(3),
+    nomEp VARCHAR2(20) NOT NULL,
+    formeEp VARCHAR2(13),
+    nomDi VARCHAR2(25) NOT NULL,
+    categorieEp VARCHAR2(10),
+    nbSportifsEp NUMBER(2),
+    dateEp DATE,
+    CONSTRAINT EP_PK PRIMARY KEY (numEp),
+    CONSTRAINT EP_CK1 CHECK (formeEp IN ('individuelle','par equipe','par couple')),
+    CONSTRAINT EP_CK2 CHECK (categorieEp IN ('feminin','masculin','mixte')),
+    CONSTRAINT EP_CK3 CHECK (numEp > 0),
+    CONSTRAINT EP_CK4 CHECK (nbSportifsEp > 0)
 );
 
 CREATE TABLE LesInscriptions(
@@ -61,3 +61,8 @@ CREATE VIEW LesNbsEquipiers AS
 	FROM LesSportifsEQ
 	GROUP BY numEq;
 
+-- Partie 2.2 : afficher le classement des pays selon leur nombre de médailles
+CREATE VIEW LesClassements AS
+    SELECT COUNT(gold) AS nbGold, COUNT(silver) AS nbSilver, COUNT(bronze) AS nbBronze, numEp
+    FROM LesResultats
+    GROUP BY numEp;
