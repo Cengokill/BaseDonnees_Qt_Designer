@@ -20,7 +20,7 @@ class AppFctPartie2_2(QDialog):
         try:
             cursor = self.data.cursor()
             result = cursor.execute(
-                "SELECT ")
+                "SELECT DISTINCT pays FROM LesResultats A JOIN LesSportifsEQ B ON(A.gold=B.numSp OR A.gold=B.numEq OR A.silver=B.numSp OR A.silver=B.numEq OR A.bronze=B.numSp OR A.bronze=B.numEq)")
         except Exception as e:
             self.ui.table_partie2_2.setRowCount(0)
             display.refreshLabel(self.ui.label_partie2_2, "Impossible d'afficher les résultats : " + repr(e))

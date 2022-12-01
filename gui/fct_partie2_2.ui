@@ -30,17 +30,22 @@
      </attribute>
      <column>
       <property name="text">
-       <string>classement</string>
-      </property>
-     </column>
-     <column>
-      <property name="text">
        <string>pays</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>nbMedailles</string>
+       <string>nbOr</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>nbArgent</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>nbBronze</string>
       </property>
      </column>
     </widget>
