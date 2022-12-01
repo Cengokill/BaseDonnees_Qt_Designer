@@ -4,7 +4,6 @@ from PyQt5.QtWidgets import QDialog, QTableWidgetItem
 from PyQt5.QtCore import pyqtSlot
 from PyQt5 import uic
 
-
 # Classe permettant d'afficher la fonction à compléter 4
 class AppFctComp2Partie1(QDialog):
 
