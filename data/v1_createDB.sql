@@ -1,7 +1,7 @@
--- TODO 1.3a : Créer les tables manquantes et modifier celles ci-dessous
--- TODO 1.4a : ajouter la définition de la vue LesAgesSportifs
--- TODO 1.5a : ajouter la définition de la vue LesNbsEquipiers
--- TODO 3.3 : ajouter les éléments nécessaires pour créer le trigger (attention, syntaxe SQLite différent qu'Oracle)
+-- Créer les tables manquantes et modification des tables existantes
+-- ajout de la définition de la vue LesAgesSportifs
+-- ajout de la définition de la vue LesNbsEquipiers
+-- ajout des éléments nécessaires pour créer le trigger
 
 CREATE TABLE LesSportifsEQ(
 	numSp NUMBER(4),
@@ -45,6 +45,7 @@ CREATE TABLE LesResultats(
 	gold NUMBER(4), --TRIGGER> numEP et numIn concordent > forment une clé primaire dans LesInscriptions
 	silver NUMBER(4),
 	bronze NUMBER(4),
+	CONSTRAINT R_PK P PRIMARY KEY (numEp)
 	CONSTRAINT EP_FK FOREIGN KEY (numEp) REFERENCES LesEpreuves(numEp),
 	CONSTRAINT GOLD_FK FOREIGN KEY (gold) REFERENCES LesInscriptions(numIn),
 	CONSTRAINT SILVER_FK FOREIGN KEY (silver) REFERENCES LesInscriptions(numIn),

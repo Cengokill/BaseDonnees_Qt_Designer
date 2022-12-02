@@ -23,7 +23,7 @@ class AppWindow(QMainWindow):
     # Création d'un signal destiné à être émis lorsque la table est modifiée
     changedValue = pyqtSignal()
 
-    # TODO 2 : ajouter les fenetres (répertoire gui) et les actions (répertoire actions) correspondant aux 2 items de la partie 2.
+    # ajout des fenetres (répertoire gui) et les actions (répertoire actions) correspondant aux 2 items de la partie 2.
     # TODO 3 : ajouter les fenetres (rep. gui) et les actions (rep. actions) correspondant aux 2 items de la partie 3.
 
     # On prévoit des variables pour accueillir les fenêtres supplémentaires
@@ -36,6 +36,7 @@ class AppWindow(QMainWindow):
     fct_partie2_1_dialog = None
     fct_partie2_2_dialog = None
     fct_partie3_1_dialog = None
+    fct_partie3_2_dialog = None
 
     # Constructeur
     def __init__(self):
@@ -201,6 +202,14 @@ class AppWindow(QMainWindow):
         self.fct_partie3_1_dialog = AppFctPartie3_1(self.data)
         self.fct_partie3_1_dialog.show()
 
+    def open_fct_partie3_2(self):
+
+        if self.fct_partie3_2_dialog is not None:
+            self.fct_partie3_2_dialog.close()
+        self.fct_partie3_2_dialog = AppFctPartie3_2(self.data)
+        self.fct_partie3_2_dialog.show()
+
+
     # En cas de clic sur le bouton de visualisation des données
     def openDataV0(self):
         if self.tablesDataDialogV0 is not None:
@@ -276,6 +285,8 @@ class AppWindow(QMainWindow):
             self.fct_partie2_2_dialog.close()
         if (self.fct_partie3_1_dialog is not None):
             self.fct_partie3_1_dialog.close()
+        if (self.fct_partie3_2_dialog is not None):
+            self.fct_partie3_2_dialog.close()
 
         # On ferme proprement la base de données
         self.data.close()
