@@ -28,7 +28,24 @@ class AppFctPartie3_1(QDialog):
 
     def modifierInscription(self):
         # MODIFIER LES DONNEES SQL
-        self.refreshResult()
+        rowid = self.ui.table_3_1.selectionModel().currentIndex().row()
+        donnee1 = self.ui.table_3_1.item(rowid, 0).text()
+        print(donnee1)
+
+        donnee2 = self.ui.table_3_1.item(rowid, 1).text()
+
+        numIn = self.ui.table_3_1.modif_numIn.text()
+        numEp = self.ui.table_3_1.modif_numEp.text()
+
+        try:
+            cursor = self.data.cursor()
+            result = cursor.execute(
+                "UPDATE LesInscriptions SET numIn = "+numIn+", numEp = "+numEp+" WHERE (numIn = "+donnee1+"AND numEp = "+donnee2 )
+            self.refreshResult()
+        except Exception as e:
+            self.ui.table_3_1.setRowCount(0)
+            display.refreshLabel(self.ui.table_3_1,
+                                 "Impossible d'afficher les résultats : " + repr(e))
 
     def ajouterInscription(self):
         # AJOUTER L'INSCRIPTION DANS LES DONNEES SQL
