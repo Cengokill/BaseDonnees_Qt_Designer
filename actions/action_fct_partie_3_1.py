@@ -22,7 +22,9 @@ class AppFctPartie3_1(QDialog):
         self.donnee2 = self.ui.table_3_1.item(rowid, 1).text()
         display.refreshLabel(self.ui.label_numIn_affiche, self.donnee1)
         display.refreshLabel(self.ui.label_numEp_affiche, self.donnee2)
-        display.refreshLabel(self.ui.label_erreur_modif, "inscription sélectionnée : numIn = " + self.donnee1 + ", numEp = " + self.donnee2)
+        #display.refreshLabel(self.ui.label_erreur_modif, "inscription sélectionnée : numIn = " + self.donnee1 + ", numEp = " + self.donnee2)
+        self.ui.modif_numIn.setText(self.donnee1)
+        self.ui.modif_numEp.setText(self.donnee2)
 
     def supprimerInscription(self):
         if self.donnee1 == "" or self.donnee2 == "":
@@ -43,6 +45,9 @@ class AppFctPartie3_1(QDialog):
     def modifierInscription(self):
         if self.donnee1 == "" or self.donnee2 == "":
             display.refreshLabel(self.ui.label_erreur_modif, "Aucune inscription sélectionnée !")
+            return
+        if self.ui.input_numIn_modif.text() == self.donnee1 and self.ui.input_numEp_modif.text() == self.donnee2:
+            display.refreshLabel(self.ui.label_erreur_modif, "Veuillez modifier la sélection !")
             return
         else:
             numIn = self.ui.modif_numIn.text()  # récupération de la valeur dans le champ modif_numIn
