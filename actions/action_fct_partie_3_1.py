@@ -22,7 +22,7 @@ class AppFctPartie3_1(QDialog):
         self.donnee2 = self.ui.table_3_1.item(rowid, 1).text()
         display.refreshLabel(self.ui.label_numIn_affiche, self.donnee1)
         display.refreshLabel(self.ui.label_numEp_affiche, self.donnee2)
-        display.refreshLabel(self.ui.label_erreur_modif, "inscription sélectionnée : numIn = " + self.donnee1 + ", numEp = " + self.donnee2)
+        display.refreshLabel(self.ui.label_erreur_modif, "inscription sélectionnée :   numIn = " + self.donnee1 + ", numEp = " + self.donnee2)
 
     def supprimerInscription(self):
         rowid = self.ui.table_3_1.selectionModel().currentIndex().row()
