@@ -15,8 +15,11 @@ class AppFctPartie3_1(QDialog):
     # Fonction de mise à jour de l'affichage
 
     def afficherInscription(self):
-        rowid = self.ui.label_erreur_3_1.selectionModel().currentIndex().row()
-        print(rowid)
+        rowid = self.ui.table_3_1.selectionModel().currentIndex().row()
+        donnee1 = self.ui.table_3_1.item(rowid, 0).text()
+        donnee2 = self.ui.table_3_1.item(rowid, 1).text()
+        display.refreshLabel(self.ui.label_numIn_affiche, donnee1)
+        display.refreshLabel(self.ui.label_numEp_affiche, donnee2)
 
 
     def refreshResult(self):
