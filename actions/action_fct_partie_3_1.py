@@ -21,6 +21,19 @@ class AppFctPartie3_1(QDialog):
         display.refreshLabel(self.ui.label_numIn_affiche, donnee1)
         display.refreshLabel(self.ui.label_numEp_affiche, donnee2)
 
+    def supprimerInscription(self):
+        rowid = self.ui.table_3_1.selectionModel().currentIndex().row()
+        # SUPPRIMER L'INSCRIPTION DES DONNEES SQL
+        self.ui.table_3_1.removeRow(rowid)
+
+    def modifierInscription(self):
+        # MODIFIER LES DONNEES SQL
+        self.refreshResult()
+
+    def ajouterInscription(self):
+        # AJOUTER L'INSCRIPTION DANS LES DONNEES SQL
+        self.refreshResult()
+
 
     def refreshResult(self):
         display.refreshLabel(self.ui.label_erreur_3_1, "")
