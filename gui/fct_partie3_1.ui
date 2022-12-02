@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Nom, prénom, pays, catégorie des sportifs d'une équipe</string>
+   <string>Gestion des inscriptions aux épreuves</string>
   </property>
   <widget class="QWidget" name="horizontalLayoutWidget">
    <property name="geometry">
