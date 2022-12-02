@@ -43,19 +43,20 @@ class AppFctPartie3_1(QDialog):
                                      "Impossible d'afficher les résultats : " + repr(e))
 
     def modifierInscription(self):
+        numIn = self.ui.modif_numIn.text()  # récupération de la valeur dans le champ modif_numIn
+        numEp = self.ui.modif_numEp.text()  # récupération de la valeur dans le champ modif_numEp
         if self.donnee1 == "" or self.donnee2 == "":
             display.refreshLabel(self.ui.label_erreur_modif, "Aucune inscription sélectionnée !")
             return
-        if self.ui.input_numIn_modif.text() == self.donnee1 and self.ui.input_numEp_modif.text() == self.donnee2:
+        if numIn == self.donnee1 and numEp == self.donnee2:
             display.refreshLabel(self.ui.label_erreur_modif, "Veuillez modifier la sélection !")
             return
         else:
-            numIn = self.ui.modif_numIn.text()  # récupération de la valeur dans le champ modif_numIn
-            numEp = self.ui.modif_numEp.text()  # récupération de la valeur dans le champ modif_numEp
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
-                    "UPDATE LesInscriptions SET numIn = " + numIn + ", numEp = " + numEp + " WHERE (numIn = " + self.donnee1 + "AND numEp = " + self.donnee2 + ")")
+                    "UPDATE LesInscriptions SET numIn = " + numIn + ", numEp = " + numEp + " WHERE (numIn = " + self.donnee1 + " AND numEp = " + self.donnee2 + ")")
+                display.refreshLabel(self.ui.label_erreur_modif, "Inscription modifiée avec succès !")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_1.setRowCount(0)
