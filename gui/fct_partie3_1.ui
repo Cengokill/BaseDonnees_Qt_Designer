@@ -205,7 +205,7 @@
     <string>numEp</string>
    </property>
   </widget>
-  <widget class="QLabel" name="label_numEp_affiche">
+  <widget class="QLabel" name="label_numIn_affiche">
    <property name="geometry">
     <rect>
      <x>510</x>
@@ -218,7 +218,7 @@
     <string/>
    </property>
   </widget>
-  <widget class="QLabel" name="label_numIn_affiche">
+  <widget class="QLabel" name="label_numEp_affiche">
    <property name="geometry">
     <rect>
      <x>510</x>
