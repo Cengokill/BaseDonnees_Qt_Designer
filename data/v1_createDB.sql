@@ -14,7 +14,7 @@ CREATE TABLE LesSportifsEQ(
 	CONSTRAINT SP_PK PRIMARY KEY (numSp, numEq),
 	CONSTRAINT SP_CK1 CHECK(numSp > 0),
 	CONSTRAINT SP_CK2 CHECK(categorieSp IN ('feminin','masculin')),
-	CONSTRAINT SP_CK3 CHECK(numEq > 0)
+	CONSTRAINT SP_CK3 CHECK(numEq >= 2)
 );
 
 CREATE TABLE LesEpreuves(
@@ -45,7 +45,7 @@ CREATE TABLE LesResultats(
 	gold NUMBER(4), --TRIGGER> numEP et numIn concordent > forment une clé primaire dans LesInscriptions
 	silver NUMBER(4),
 	bronze NUMBER(4),
-	CONSTRAINT R_PK P PRIMARY KEY (numEp)
+	CONSTRAINT R_PK PRIMARY KEY (numEp)
 	CONSTRAINT EP_FK FOREIGN KEY (numEp) REFERENCES LesEpreuves(numEp),
 	CONSTRAINT GOLD_FK FOREIGN KEY (gold) REFERENCES LesInscriptions(numIn),
 	CONSTRAINT SILVER_FK FOREIGN KEY (silver) REFERENCES LesInscriptions(numIn),
