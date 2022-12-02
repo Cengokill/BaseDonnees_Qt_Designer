@@ -44,6 +44,8 @@ class AppFctPartie3_2(QDialog):
                 result = cursor.execute(
                     "DELETE FROM LesResultats WHERE (numEp = "+self.donnee1+")")
                 display.refreshLabel(self.ui.label_erreur_supprimer, "Resultats supprimés avec succès !")
+                display.refreshLabel(self.ui.label_erreur_modif, "")
+                display.refreshLabel(self.ui.label_erreur_ajouter, "")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_2.setRowCount(0)
@@ -68,6 +70,8 @@ class AppFctPartie3_2(QDialog):
                 result = cursor.execute(
                     "UPDATE LesResultats SET numEp = " + numEp + ", gold = " + gold + ", silver = " + silver + ", bronze = " + bronze + " WHERE (numEp = " + self.donnee1 + ")")
                 display.refreshLabel(self.ui.label_erreur_modif, "Résultats modifiés avec succès !")
+                display.refreshLabel(self.ui.label_erreur_supprimer, "")
+                display.refreshLabel(self.ui.label_erreur_ajouter, "")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_2.setRowCount(0)
@@ -88,6 +92,8 @@ class AppFctPartie3_2(QDialog):
                 result = cursor.execute(
                     "INSERT INTO LesResultats VALUES (" + numEp + ", " + gold + ", " + silver + ", " + bronze + ")")
                 display.refreshLabel(self.ui.label_erreur_ajouter, "Résultats ajoutés (à la fin de la table) avec succès !")
+                display.refreshLabel(self.ui.label_erreur_supprimer, "")
+                display.refreshLabel(self.ui.label_erreur_modif, "")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_2.setRowCount(0)
