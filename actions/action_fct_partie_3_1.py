@@ -22,7 +22,6 @@ class AppFctPartie3_1(QDialog):
         self.donnee2 = self.ui.table_3_1.item(rowid, 1).text()
         display.refreshLabel(self.ui.label_numIn_affiche, self.donnee1)
         display.refreshLabel(self.ui.label_numEp_affiche, self.donnee2)
-        #display.refreshLabel(self.ui.label_erreur_modif, "inscription sélectionnée : numIn = " + self.donnee1 + ", numEp = " + self.donnee2)
         self.ui.modif_numIn.setText(self.donnee1)
         self.ui.modif_numEp.setText(self.donnee2)
 
@@ -36,6 +35,8 @@ class AppFctPartie3_1(QDialog):
                 result = cursor.execute(
                     "DELETE FROM LesInscriptions WHERE (numIn = "+self.donnee1+" AND numEp = "+self.donnee2+")")
                 display.refreshLabel(self.ui.label_erreur_supprimer, "Inscription supprimée avec succès !")
+                display.refreshLabel(self.ui.label_erreur_modif, "")
+                display.refreshLabel(self.ui.label_erreur_ajouter, "")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_1.setRowCount(0)
@@ -43,8 +44,8 @@ class AppFctPartie3_1(QDialog):
                                      "Impossible d'afficher les résultats : " + repr(e))
 
     def modifierInscription(self):
-        numIn = self.ui.modif_numIn.text()  # récupération de la valeur dans le champ modif_numIn
-        numEp = self.ui.modif_numEp.text()  # récupération de la valeur dans le champ modif_numEp
+        numIn = self.ui.modif_numIn.text()# récupération de la valeur dans le champ modif_numIn
+        numEp = self.ui.modif_numEp.text()# récupération de la valeur dans le champ modif_numEp
         if self.donnee1 == "" or self.donnee2 == "":
             display.refreshLabel(self.ui.label_erreur_modif, "Aucune inscription sélectionnée !")
             return
@@ -57,6 +58,8 @@ class AppFctPartie3_1(QDialog):
                 result = cursor.execute(
                     "UPDATE LesInscriptions SET numIn = " + numIn + ", numEp = " + numEp + " WHERE (numIn = " + self.donnee1 + " AND numEp = " + self.donnee2 + ")")
                 display.refreshLabel(self.ui.label_erreur_modif, "Inscription modifiée avec succès !")
+                display.refreshLabel(self.ui.label_erreur_supprimer, "")
+                display.refreshLabel(self.ui.label_erreur_ajouter, "")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_1.setRowCount(0)
@@ -68,13 +71,15 @@ class AppFctPartie3_1(QDialog):
             display.refreshLabel(self.ui.label_erreur_ajouter, "Veuillez remplir tous les champs !")
             return
         else:
-            numIn = self.ui.input_numIn.text()  # récupération de la valeur dans le champ input_numIn
-            numEp = self.ui.input_numEp.text()  # récupération de la valeur dans le champ input_numEp
+            numIn = self.ui.input_numIn.text()# récupération de la valeur dans le champ input_numIn
+            numEp = self.ui.input_numEp.text()# récupération de la valeur dans le champ input_numEp
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
                     "INSERT INTO LesInscriptions VALUES (" + numIn + ", " + numEp + ")")
                 display.refreshLabel(self.ui.label_erreur_ajouter, "Inscription ajoutée (à la fin de la table) avec succès !")
+                display.refreshLabel(self.ui.label_erreur_supprimer, "")
+                display.refreshLabel(self.ui.label_erreur_modif, "")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_1.setRowCount(0)
