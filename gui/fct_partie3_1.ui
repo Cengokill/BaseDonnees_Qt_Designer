@@ -17,9 +17,9 @@
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>10</y>
+     <y>40</y>
      <width>331</width>
-     <height>681</height>
+     <height>651</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
@@ -385,6 +385,25 @@
     <string/>
    </property>
   </widget>
+  <widget class="QPushButton" name="Actualiser">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>10</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>Actualiser</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections>
@@ -412,7 +431,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>707</x>
-     <y>88</y>
+     <y>128</y>
     </hint>
     <hint type="destinationlabel">
      <x>740</x>
@@ -428,7 +447,7 @@
    <hints>
     <hint type="sourcelabel">
      <x>603</x>
-     <y>352</y>
+     <y>412</y>
     </hint>
     <hint type="destinationlabel">
      <x>651</x>
@@ -444,11 +463,27 @@
    <hints>
     <hint type="sourcelabel">
      <x>709</x>
-     <y>498</y>
+     <y>568</y>
     </hint>
     <hint type="destinationlabel">
      <x>745</x>
      <y>503</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>Actualiser</sender>
+   <signal>clicked()</signal>
+   <receiver>fct_partie3_1</receiver>
+   <slot>refreshResult()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>187</x>
+     <y>15</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>229</x>
+     <y>19</y>
     </hint>
    </hints>
   </connection>

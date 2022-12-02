@@ -45,8 +45,8 @@ class AppFctPartie3_1(QDialog):
             display.refreshLabel(self.ui.label_erreur_modif, "Aucune inscription sélectionnée !")
             return
         else:
-            numIn = self.ui.table_3_1.input_numIn.text()# récupération de la valeur dans le champ input_numIn
-            numEp = self.ui.table_3_1.input_numEp.text()# récupération de la valeur dans le champ input_numEp
+            numIn = self.ui.modif_numIn.text()  # récupération de la valeur dans le champ modif_numIn
+            numEp = self.ui.modif_numEp.text()  # récupération de la valeur dans le champ modif_numEp
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
@@ -58,16 +58,17 @@ class AppFctPartie3_1(QDialog):
                                      "Impossible d'ajouter les données : " + repr(e))
 
     def ajouterInscription(self):
-        if self.ui.modif_numIn.text() == "" or self.ui.modif_numEp.text() == "":
+        if self.ui.input_numIn.text() == "" or self.ui.input_numEp.text() == "":
             display.refreshLabel(self.ui.label_erreur_ajouter, "Veuillez remplir tous les champs !")
             return
         else:
-            numIn = self.ui.table_3_1.modif_numIn.text()  # récupération de la valeur dans le champ modif_numIn
-            numEp = self.ui.table_3_1.modif_numEp.text()  # récupération de la valeur dans le champ modif_numEp
+            numIn = self.ui.input_numIn.text()  # récupération de la valeur dans le champ input_numIn
+            numEp = self.ui.input_numEp.text()  # récupération de la valeur dans le champ input_numEp
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
                     "INSERT INTO LesInscriptions VALUES (" + numIn + ", " + numEp + ")")
+                display.refreshLabel(self.ui.label_erreur_ajouter, "Inscription ajoutée (à la fin de la table) avec succès !")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_1.setRowCount(0)
