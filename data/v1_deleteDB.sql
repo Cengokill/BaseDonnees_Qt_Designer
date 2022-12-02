@@ -3,10 +3,8 @@
 --DROP TABLE IF EXISTS LesSportifsEQ;
 
 -- TODO 3.3 : pensez à détruire vos triggers !
-DROP TRIGGER IF EXISTS InsertCheck1;
-DROP TRIGGER IF EXISTS InsertCheck2;
-DROP TRIGGER IF EXISTS UpdateCheck1;
-DROP TRIGGER IF EXISTS UpdateCheck1;
+DROP TRIGGER IF EXISTS InsertCheck;
+DROP TRIGGER IF EXISTS UpdateCheck;
 
 DROP VIEW IF EXISTS LesAgesSportifs;
 DROP VIEW IF EXISTS LesNbsEquipiers;
