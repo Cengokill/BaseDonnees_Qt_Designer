@@ -30,10 +30,10 @@ class AppFctPartie3_1(QDialog):
         # MODIFIER LES DONNEES SQL
         rowid = self.ui.table_3_1.selectionModel().currentIndex().row()
         donnee1 = self.ui.table_3_1.item(rowid, 0).text()
-
+        print(donnee1)
 
         donnee2 = self.ui.table_3_1.item(rowid, 1).text()
-        print(donnee1, donnee2)
+
         numIn = self.ui.table_3_1.modif_numIn.text()
         numEp = self.ui.table_3_1.modif_numEp.text()
 
