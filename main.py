@@ -269,6 +269,12 @@ class AppWindow(QMainWindow):
             self.fct_comp_1_dialog.close()
         if (self.fct_comp_2_dialog is not None):
             self.fct_comp_2_dialog.close()
+        if (self.fct_partie2_1_dialog is not None):
+            self.fct_partie2_1_dialog.close()
+        if (self.fct_partie2_2_dialog is not None):
+            self.fct_partie2_2_dialog.close()
+        if (self.fct_partie3_1_dialog is not None):
+            self.fct_partie3_1_dialog.close()
 
         # On ferme proprement la base de données
         self.data.close()

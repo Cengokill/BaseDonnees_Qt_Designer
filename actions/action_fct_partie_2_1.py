@@ -15,7 +15,6 @@ class AppFctPartie2_1(QDialog):
 
     # Fonction de mise à jour de l'affichage
     def refreshResult(self):
-
         display.refreshLabel(self.ui.label_partie2_1, "")
         try:
             cursor = self.data.cursor()
