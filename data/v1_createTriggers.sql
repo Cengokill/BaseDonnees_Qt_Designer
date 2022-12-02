@@ -12,5 +12,3 @@ CREATE TRIGGER IF NOT EXISTS UpdateCheck
    BEGIN
         SELECT RAISE (ABORT, 'numIn/numEp non répertorié' );
    END;
-
-
