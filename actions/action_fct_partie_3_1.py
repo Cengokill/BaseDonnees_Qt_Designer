@@ -33,37 +33,45 @@ class AppFctPartie3_1(QDialog):
                 cursor = self.data.cursor()
                 result = cursor.execute(
                     "DELETE FROM LesInscriptions WHERE (numIn = "+self.donnee1+" AND numEp = "+self.donnee2+")")
-                display.refreshLabel(self.ui.label_erreur_modif, "Inscription supprimée avec succès !")
+                display.refreshLabel(self.ui.label_erreur_supprimer, "Inscription supprimée avec succès !")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_1.setRowCount(0)
                 display.refreshLabel(self.ui.label_erreur_3_1,
                                      "Impossible d'afficher les résultats : " + repr(e))
-        # rowid = self.ui.table_3_1.selectionModel().currentIndex().row()
-        # self.ui.table_3_1.removeRow(rowid)
 
     def modifierInscription(self):
-        # MODIFIER LES DONNEES SQL
         if self.donnee1 == "" or self.donnee2 == "":
             display.refreshLabel(self.ui.label_erreur_modif, "Aucune inscription sélectionnée !")
             return
         else:
-            numIn = self.ui.table_3_1.modif_numIn.text()# récupération de la valeur dans le champ modif_numIn
-            numEp = self.ui.table_3_1.modif_numEp.text()# récupération de la valeur dans le champ modif_numEp
+            numIn = self.ui.table_3_1.input_numIn.text()# récupération de la valeur dans le champ input_numIn
+            numEp = self.ui.table_3_1.input_numEp.text()# récupération de la valeur dans le champ input_numEp
             try:
                 cursor = self.data.cursor()
                 result = cursor.execute(
-                    "UPDATE LesInscriptions SET numIn = "+numIn+", numEp = "+numEp+" WHERE (numIn = "+self.donnee1+"AND numEp = "+self.donnee2+")")
+                    "UPDATE LesInscriptions SET numIn = " + numIn + ", numEp = " + numEp + " WHERE (numIn = " + self.donnee1 + "AND numEp = " + self.donnee2 + ")")
                 self.refreshResult()
             except Exception as e:
                 self.ui.table_3_1.setRowCount(0)
                 display.refreshLabel(self.ui.label_erreur_3_1,
-                                     "Impossible d'afficher les résultats : " + repr(e))
+                                     "Impossible d'ajouter les données : " + repr(e))
 
     def ajouterInscription(self):
-        # AJOUTER L'INSCRIPTION DANS LES DONNEES SQL
-        self.refreshResult()
-
+        if self.ui.modif_numIn.text() == "" or self.ui.modif_numEp.text() == "":
+            display.refreshLabel(self.ui.label_erreur_ajouter, "Veuillez remplir tous les champs !")
+            return
+        else:
+            numIn = self.ui.table_3_1.modif_numIn.text()  # récupération de la valeur dans le champ modif_numIn
+            numEp = self.ui.table_3_1.modif_numEp.text()  # récupération de la valeur dans le champ modif_numEp
+            try:
+                cursor = self.data.cursor()
+                result = cursor.execute(
+                    "INSERT INTO LesInscriptions VALUES (" + numIn + ", " + numEp + ")")
+                self.refreshResult()
+            except Exception as e:
+                self.ui.table_3_1.setRowCount(0)
+                display.refreshLabel(self.ui.label_erreur_3_1, "Impossible d'insérer les données : " + repr(e))
 
     def refreshResult(self):
         display.refreshLabel(self.ui.label_erreur_3_1, "")
