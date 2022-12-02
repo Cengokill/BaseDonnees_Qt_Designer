@@ -52,6 +52,7 @@ CREATE TABLE LesResultats(
 	CONSTRAINT BRONZE_FK FOREIGN KEY (bronze) REFERENCES LesInscriptions(numIn)
 );
 
+
 CREATE VIEW LesAgesSportifs AS
 	SELECT (DATE() - dateNaisSp) AS age, numSp
 	FROM LesSportifsEQ
